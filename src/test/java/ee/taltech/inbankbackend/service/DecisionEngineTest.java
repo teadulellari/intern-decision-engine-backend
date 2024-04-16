@@ -3,10 +3,9 @@ package ee.taltech.inbankbackend.service;
 import com.github.vladislavgoltjajev.personalcode.common.Gender;
 import com.github.vladislavgoltjajev.personalcode.exception.PersonalCodeException;
 import com.github.vladislavgoltjajev.personalcode.locale.estonia.EstonianPersonalCodeGenerator;
-import com.github.vladislavgoltjajev.personalcode.locale.estonia.EstonianPersonalCodeParser;
 import ee.taltech.inbankbackend.exception.*;
-import ee.taltech.inbankbackend.utils.DecisionEngineConstant;
 import ee.taltech.inbankbackend.model.Decision;
+import ee.taltech.inbankbackend.utils.DecisionEngineConstant;
 import ee.taltech.inbankbackend.utils.Validator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,13 +33,13 @@ class DecisionEngineTest {
         LocalDate underAgeUserBirthday = LocalDate.now().minusYears(17);
         LocalDate riskyMaleAgeBirthDay = LocalDate.now().minusYears(74);
         LocalDate riskyFemaleAgeBirthDay = LocalDate.now().minusYears(76);
-        debtorPersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE,averageUserBirthday,29);
-        segment1PersonalCode = personalCodeGenerator.generatePersonalCode(Gender.FEMALE,averageUserBirthday,300);
-        segment2PersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE,averageUserBirthday,600);
-        segment3PersonalCode = personalCodeGenerator.generatePersonalCode(Gender.FEMALE,averageUserBirthday,900);
-        underLegalAgePersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE,underAgeUserBirthday,300);
-        riskyMalePersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE,riskyMaleAgeBirthDay,300);
-        riskyFemalePersonalCode = personalCodeGenerator.generatePersonalCode(Gender.FEMALE,riskyFemaleAgeBirthDay,300);
+        debtorPersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE, averageUserBirthday, 29);
+        segment1PersonalCode = personalCodeGenerator.generatePersonalCode(Gender.FEMALE, averageUserBirthday, 300);
+        segment2PersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE, averageUserBirthday, 600);
+        segment3PersonalCode = personalCodeGenerator.generatePersonalCode(Gender.FEMALE, averageUserBirthday, 900);
+        underLegalAgePersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE, underAgeUserBirthday, 300);
+        riskyMalePersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE, riskyMaleAgeBirthDay, 300);
+        riskyFemalePersonalCode = personalCodeGenerator.generatePersonalCode(Gender.FEMALE, riskyFemaleAgeBirthDay, 300);
         decisionEngine = new DecisionEngine(new Validator(), new CountryService());
     }
 
@@ -129,12 +128,13 @@ class DecisionEngineTest {
     }
 
     @Test
-    void testRiskyMaleAgeLoanRequest() throws PersonalCodeException {
+    void testRiskyMaleAgeLoanRequest() {
         assertThrows(InvalidAgeException.class,
                 () -> decisionEngine.calculateApprovedLoan(riskyMalePersonalCode, 2000L, 20));
     }
+
     @Test
-    void testRiskyFemaleAgeLoanRequest() throws PersonalCodeException {
+    void testRiskyFemaleAgeLoanRequest() {
         assertThrows(InvalidAgeException.class,
                 () -> decisionEngine.calculateApprovedLoan(riskyFemalePersonalCode, 2000L, 20));
     }

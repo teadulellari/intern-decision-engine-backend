@@ -52,11 +52,11 @@ class DecisionEngineControllerTest {
         LocalDate underAgeUserBirthday = LocalDate.now().minusYears(17);
         LocalDate riskyMaleAgeBirthDay = LocalDate.now().minusYears(74);
         LocalDate riskyFemaleAgeBirthDay = LocalDate.now().minusYears(76);
-        debtorPersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE,averageUserBirthday,29);
-        segment1PersonalCode = personalCodeGenerator.generatePersonalCode(Gender.FEMALE,averageUserBirthday,300);
-        underLegalAgePersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE,underAgeUserBirthday,300);
-        riskyMalePersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE,riskyMaleAgeBirthDay,300);
-        riskyFemalePersonalCode = personalCodeGenerator.generatePersonalCode(Gender.FEMALE,riskyFemaleAgeBirthDay,300);
+        debtorPersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE, averageUserBirthday, 29);
+        segment1PersonalCode = personalCodeGenerator.generatePersonalCode(Gender.FEMALE, averageUserBirthday, 300);
+        underLegalAgePersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE, underAgeUserBirthday, 300);
+        riskyMalePersonalCode = personalCodeGenerator.generatePersonalCode(Gender.MALE, riskyMaleAgeBirthDay, 300);
+        riskyFemalePersonalCode = personalCodeGenerator.generatePersonalCode(Gender.FEMALE, riskyFemaleAgeBirthDay, 300);
     }
 
     /**
@@ -78,8 +78,8 @@ class DecisionEngineControllerTest {
                 .andReturn();
 
         DecisionResponse response = objectMapper.readValue(result.getResponse().getContentAsString(), DecisionResponse.class);
-        assertEquals(2000,response.getLoanAmount());
-        assertEquals(20,response.getLoanPeriod());
+        assertEquals(2000, response.getLoanAmount());
+        assertEquals(20, response.getLoanPeriod());
         assertNull(response.getErrorMessage());
     }
 
@@ -191,8 +191,8 @@ class DecisionEngineControllerTest {
                 .andReturn();
 
         DecisionResponse response = objectMapper.readValue(result.getResponse().getContentAsString(), DecisionResponse.class);
-        assertEquals(2000,response.getLoanAmount());
-        assertEquals(20,response.getLoanPeriod());
+        assertEquals(2000, response.getLoanAmount());
+        assertEquals(20, response.getLoanPeriod());
         assertNull(response.getErrorMessage());
     }
 
@@ -208,8 +208,8 @@ class DecisionEngineControllerTest {
                 .andReturn();
 
         DecisionResponse response = objectMapper.readValue(result.getResponse().getContentAsString(), DecisionResponse.class);
-        assertEquals(4000,response.getLoanAmount());
-        assertEquals(40,response.getLoanPeriod());
+        assertEquals(4000, response.getLoanAmount());
+        assertEquals(40, response.getLoanPeriod());
         assertNull(response.getErrorMessage());
     }
 
