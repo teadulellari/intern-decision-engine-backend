@@ -7,6 +7,8 @@ This Branch is based on `TICKET101-review` which contains the changes I did for 
 
 In order to view the TICKET101 click [here](https://github.com/teadulellari/intern-decision-engine-backend/tree/TICKET101-review) and to see the review of ticket 101 [here](https://github.com/teadulellari/intern-decision-engine-backend/blob/TICKET101-review/REVIEW.md)
 
+In order to view the implementation of TICKET102 click [here](https://github.com/teadulellari/intern-decision-engine-backend/tree/TICKET102) and to see the comments about ticket 102 [here](https://github.com/teadulellari/intern-decision-engine-backend/blob/TICKET102/COMMENTS.md)
+
 # InBank Backend Service
 
 This service provides a REST API for calculating an approved loan amount and period for a customer.

@@ -7,8 +7,6 @@ import ee.taltech.inbankbackend.utils.DecisionEngineConstant;
 import ee.taltech.inbankbackend.utils.Validator;
 import org.springframework.stereotype.Service;
 
-import java.time.Period;
-
 /**
  * A service class that provides a method for calculating an approved loan amount and period for a customer.
  * The loan amount is calculated based on the customer's credit modifier,
