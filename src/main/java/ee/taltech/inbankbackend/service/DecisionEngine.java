@@ -16,8 +16,8 @@ import java.time.Period;
  */
 @Service
 public class DecisionEngine {
-    private Validator validator;
-    private CountryService countryService;
+    private final Validator validator;
+    private final CountryService countryService;
 
     DecisionEngine(Validator validator, CountryService countryService) {
         this.validator = validator;
