@@ -1,3 +1,9 @@
+# Main branch (Intern branch)
+
+This main branch is representing the implementation that intern did. Review of TICKET101 and implementation of TICKET102 are done in separate branches.
+
+Convenient hyperlinks in order to see [TICKET101](https://github.com/teadulellari/intern-decision-engine-backend/tree/TICKET101-review) and [TICKET102](https://github.com/teadulellari/intern-decision-engine-backend/tree/TICKET102)
+
 # InBank Backend Service
 
 This service provides a REST API for calculating an approved loan amount and period for a customer.
