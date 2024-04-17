@@ -7,6 +7,8 @@ import ee.taltech.inbankbackend.utils.DecisionEngineConstant;
 import ee.taltech.inbankbackend.utils.Validator;
 import org.springframework.stereotype.Service;
 
+import java.time.Period;
+
 /**
  * A service class that provides a method for calculating an approved loan amount and period for a customer.
  * The loan amount is calculated based on the customer's credit modifier,
@@ -36,6 +38,7 @@ public class DecisionEngine {
      * @throws InvalidLoanAmountException   If the requested loan amount is invalid
      * @throws InvalidLoanPeriodException   If the requested loan period is invalid
      * @throws NoValidLoanException         If there is no valid loan found for the given ID code, loan amount and loan period
+     * @throws InvalidAgeException          If the requested customer is either underage or in risky age group
      */
     public Decision calculateApprovedLoan(String personalCode, Long loanAmount, int loanPeriod) throws InvalidLoanPeriodException, InvalidPersonalCodeException, InvalidLoanAmountException, NoValidLoanException, PersonalCodeException, InvalidAgeException {
         validator.verifyPersonalCode(personalCode);
