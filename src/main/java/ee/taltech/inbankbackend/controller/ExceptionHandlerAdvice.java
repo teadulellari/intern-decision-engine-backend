@@ -1,10 +1,7 @@
 package ee.taltech.inbankbackend.controller;
 
 import ee.taltech.inbankbackend.dto.DecisionResponse;
-import ee.taltech.inbankbackend.exception.InvalidLoanAmountException;
-import ee.taltech.inbankbackend.exception.InvalidLoanPeriodException;
-import ee.taltech.inbankbackend.exception.InvalidPersonalCodeException;
-import ee.taltech.inbankbackend.exception.NoValidLoanException;
+import ee.taltech.inbankbackend.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,8 +16,8 @@ public class ExceptionHandlerAdvice {
         return ResponseEntity.badRequest().body(response);
     }
 
-    @ExceptionHandler(NoValidLoanException.class)
-    public ResponseEntity<DecisionResponse> handleNotFound(NoValidLoanException e) {
+    @ExceptionHandler({NoValidLoanException.class, InvalidAgeException.class})
+    public ResponseEntity<DecisionResponse> handleNotFound(Exception e) {
         DecisionResponse response = new DecisionResponse(null, null, e.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
