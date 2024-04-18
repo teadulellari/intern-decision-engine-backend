@@ -5,7 +5,7 @@
 - Intern created the core part of the implementation of the decision engine
 - Intern uses Data Transfer Objects (DTO) to represent the expected and exposed (response) data and doing this, we make sure we limit what we provide to outside.
 - Implementation uses smart approach by understanding the core logic of this decision engine is to provide the maximum loan amount possible to the user.
-It assumes that the maximum amount of loan comes from the case when `credit_modifier = 1` which makes the `(credit modifier / loan amount) * loan period) = 1`
+It assumes that the maximum amount of loan comes from the case when `credit_score = 1` which makes the `(credit modifier / loan amount) * loan period) = 1`
 Then if we want to get the maximum amount that supports this condition, we can just multiply both side with loan amount and this equation turns into
 `loan amount = credit modifier * loan period` and with this simplification we find the maximum amount of loan that we can provide without looping and this reduces the complexity to O(1). 
 The intern also uses this amount to compare with the lowest possible value to find out if we need to search for a different loan period.
